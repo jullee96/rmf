@@ -34,9 +34,8 @@ std::shared_ptr<Node> Node::make(
   auto node = std::shared_ptr<Node>(
     new Node(std::move(worker), node_name, options));
 
-  auto default_qos = rclcpp::SystemDefaultsQoS().keep_last(100);
-  auto transient_qos = rclcpp::SystemDefaultsQoS()
-    .reliable().keep_last(100).transient_local();
+  auto default_qos = rclcpp::SystemDefaultsQoS();
+  default_qos.keep_last(100);
 
   node->_door_state_obs =
     node->create_observable<DoorState>(
@@ -56,7 +55,7 @@ std::shared_ptr<Node> Node::make(
 
   node->_lift_request_pub =
     node->create_publisher<LiftRequest>(
-    AdapterLiftRequestTopicName, transient_qos);
+    AdapterLiftRequestTopicName, default_qos);
 
   node->_task_summary_pub =
     node->create_publisher<TaskSummary>(
@@ -106,18 +105,6 @@ std::shared_ptr<Node> Node::make(
   node->_task_api_response_pub =
     node->create_publisher<ApiResponse>(
     TaskApiResponses, transient_local_qos);
-
-  node->_mutex_group_request_pub =
-    node->create_publisher<MutexGroupRequest>(
-    MutexGroupRequestTopicName, transient_local_qos);
-
-  node->_mutex_group_request_obs =
-    node->create_observable<MutexGroupRequest>(
-    MutexGroupRequestTopicName, transient_local_qos);
-
-  node->_mutex_group_states_obs =
-    node->create_observable<MutexGroupStates>(
-    MutexGroupStatesTopicName, transient_local_qos);
 
   return node;
 }
@@ -240,24 +227,6 @@ auto Node::task_api_request() const -> const ApiRequestObs&
 auto Node::task_api_response() const -> const ApiResponsePub&
 {
   return _task_api_response_pub;
-}
-
-//==============================================================================
-auto Node::mutex_group_request() const -> const MutexGroupRequestPub&
-{
-  return _mutex_group_request_pub;
-}
-
-//==============================================================================
-auto Node::mutex_group_request_obs() const -> const MutexGroupRequestObs&
-{
-  return _mutex_group_request_obs->observe();
-}
-
-//==============================================================================
-auto Node::mutex_group_states() const -> const MutexGroupStatesObs&
-{
-  return _mutex_group_states_obs->observe();
 }
 
 } // namespace agv

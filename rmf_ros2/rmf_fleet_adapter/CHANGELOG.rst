@@ -2,43 +2,18 @@
 Changelog for package rmf_fleet_adapter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.6.0 (2024-03-13)
+2.1.8 (2023-12-19)
 ------------------
-* Removes a line of dead code (`#322 <https://github.com/open-rmf/rmf_ros2/pull/322>`_)
-* include cstdint header (`#331 <https://github.com/open-rmf/rmf_ros2/pull/331>`_)
-* Add Backward-ROS for improved logging in event of segfaults (`#327 <https://github.com/open-rmf/rmf_ros2/pull/327>`_)
-* Explicitly specify all qos depth (`#323 <https://github.com/open-rmf/rmf_ros2/pull/323>`_)
-* Add support of fleet-level task (`#317 <https://github.com/open-rmf/rmf_ros2/pull/317>`_)
-* Fix minor logging error (`#318 <https://github.com/open-rmf/rmf_ros2/pull/318>`_)
-* Contributors: Arjo Chakravarty, Teo Koon Peng, Yadunund, cwrx777
+* Cancel automatic pending tasks that are removed during new assignments (`#301 <https://github.com/open-rmf/rmf_ros2/pull/303>`_)
+* Contributors: Aaron Chong
 
-2.5.0 (2023-12-22)
+2.1.7 (2023-08-10)
 ------------------
-* Fix edge case when starting on a lane (`#312 <https://github.com/open-rmf/rmf_ros2/pull/312>`_)
-* Update `GoToPlace` to allow finding nearest spot (`#308 <https://github.com/open-rmf/rmf_ros2/pull/308>`_)
-* Contributors: Arjo Chakravarty, Grey
+* Fix comparator for direct assignment ordering (`#292 <https://github.com/open-rmf/rmf_ros2/pull/292>`_)
+* Adding initiator and request time to booking (`#284 <https://github.com/open-rmf/rmf_ros2/pull/284>`_)
+* Contributors: Aaron Chong, Yadunund
 
-2.4.0 (2023-12-15)
-------------------
-* Mutex Groups, localization hook, dynamic charging, and new graph elements (`#310 <https://github.com/open-rmf/rmf_ros2/pull/310>`_)
-
-2.3.2 (2023-08-28)
-------------------
-* Improve linking time (`#297 <https://github.com/open-rmf/rmf_ros2/pull/297>`_)
-* EasyFullControl API (`#235 <https://github.com/open-rmf/rmf_ros2/pull/235>`_)
-* Contributors: Grey, Luca Della Vedova, Xiyu, Yadunund
-
-2.3.1 (2023-08-10)
-------------------
-* Remove duplicate task schemas (`#294 <https://github.com/open-rmf/rmf_ros2/pull/294>`_)
-* Fix comparator for direct assignment ordering (`#288 <https://github.com/open-rmf/rmf_ros2/pull/288>`_)
-* Adding initiator and request time to booking (`#267 <https://github.com/open-rmf/rmf_ros2/pull/267>`_)
-* Contributors: Aaron Chong, Omar Hamza, Yadunund
-
-2.3.0 (2023-06-08)
-------------------
-
-2.2.0 (2023-06-06)
+2.1.6 (2023-06-02)
 ------------------
 * Fix race condition related to the ``finished`` callback of ``perform_action`` events: (`#273 <https://github.com/open-rmf/rmf_ros2/pull/273>`_)
 * Switch to rst changelogs (`#276 <https://github.com/open-rmf/rmf_ros2/pull/276>`_)

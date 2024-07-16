@@ -47,11 +47,6 @@ public:
   // Documentation inherited
   uint64_t id() const final;
 
-  /// Change the ID of this event state. Use this with great caution; the ID is
-  /// generally meant to remain constant. This method is only provided for very
-  /// niche cases.
-  SimpleEventState& modify_id(uint64_t new_id);
-
   // Documentation inherited
   Status status() const final;
 

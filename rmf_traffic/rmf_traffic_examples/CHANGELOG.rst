@@ -2,15 +2,12 @@
 Changelog for package rmf_traffic_examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-3.3.1 (2023-12-22)
+3.0.3 (2023-12-22)
 ------------------
 
-3.2.0 (2023-06-08)
+3.0.1 (2023-06-05)
 ------------------
-
-3.1.0 (2023-06-06)
-------------------
-* Switch to rst changelogs (`#100 <https://github.com/open-rmf/rmf_traffic/pull/100>`_)
+* Switch to rst changelogs
 * Contributors: Yadunund
 
 3.0.0 (2022-10-03)

@@ -49,7 +49,7 @@ public:
       const AssignIDPtr& id,
       const std::function<rmf_task::State()>& get_state,
       const rmf_task::ConstParametersPtr& parameters,
-      const Description& description,
+      const rmf_task_sequence::events::GoToPlace::Description& description,
       std::function<void()> update,
       std::optional<rmf_traffic::Duration> tail_period = std::nullopt);
 
@@ -63,9 +63,10 @@ public:
 
   private:
 
-    Standby(Description description);
+    Standby(rmf_traffic::agv::Plan::Goal goal);
 
-    Description _description;
+    rmf_traffic::agv::Plan::Goal _goal;
+    std::vector<rmf_traffic::agv::Plan::Goal> _followed_by;
     AssignIDPtr _assign_id;
     agv::RobotContextPtr _context;
     rmf_traffic::Duration _time_estimate;
@@ -84,7 +85,8 @@ public:
     static std::shared_ptr<Active> make(
       const AssignIDPtr& id,
       agv::RobotContextPtr context,
-      Description description,
+      rmf_traffic::agv::Plan::Goal goal,
+      std::vector<rmf_traffic::agv::Plan::Goal> followed_by,
       std::optional<rmf_traffic::Duration> tail_period,
       rmf_task::events::SimpleEventStatePtr state,
       std::function<void()> update,
@@ -104,20 +106,16 @@ public:
 
   private:
 
-    Active(Description description);
+    Active(rmf_traffic::agv::Plan::Goal goal);
 
     void _schedule_retry();
-
-    std::optional<rmf_traffic::agv::Plan::Goal> _choose_goal(
-      bool only_same_map) const;
 
     void _find_plan();
 
     void _execute_plan(
       rmf_traffic::PlanId plan_id,
       rmf_traffic::agv::Plan plan,
-      rmf_traffic::schedule::Itinerary full_itinerary,
-      rmf_traffic::agv::Plan::Goal goal);
+      rmf_traffic::schedule::Itinerary full_itinerary);
 
     void _stop_and_clear();
 
@@ -125,8 +123,8 @@ public:
       const Negotiator::TableViewerPtr& table_view,
       const Negotiator::ResponderPtr& responder);
 
-    Description _description;
-    std::optional<rmf_traffic::agv::Plan::Goal> _chosen_goal;
+    rmf_traffic::agv::Plan::Goal _goal;
+    std::vector<rmf_traffic::agv::Plan::Goal> _followed_by;
     AssignIDPtr _assign_id;
     agv::RobotContextPtr _context;
     std::optional<rmf_traffic::Duration> _tail_period;
@@ -141,7 +139,6 @@ public:
     rclcpp::TimerBase::SharedPtr _retry_timer;
 
     rmf_rxcpp::subscription_guard _replan_request_subscription;
-    rmf_rxcpp::subscription_guard _graph_change_subscription;
 
     bool _is_interrupted = false;
   };

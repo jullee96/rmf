@@ -2,18 +2,11 @@
 Changelog for package rmf_visualization_obstacles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.2.1 (2023-08-28)
+2.0.2 (2023-06-05)
 ------------------
-* Improve linking times (`#61 <https://github.com/open-rmf/rmf_visualization/pull/61>`_)
-* Contributors: Grey, Luca Della Vedova
-
-2.2.0 (2023-06-08)
-------------------
-
-2.1.0 (2023-06-06)
-------------------
-* Switch to rst changelogs (`#57 <https://github.com/open-rmf/rmf_visualization/pull/57>`_)
-* Contributors: Yadunund
+* Port version bump and changes from main to humble
+* Switch to rst changelogs (`#57 <https://github.com/open-rmf/rmf_visualization/issues/57>`_)
+* Contributors: Esteban Martinena, Grey, Yadunund
 
 2.0.1 (2022-11-15)
 ------------------

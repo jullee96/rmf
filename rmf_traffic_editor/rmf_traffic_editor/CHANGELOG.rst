@@ -2,20 +2,12 @@
 Changelog for package rmf\_traffic\_editor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.8.2 (2023-12-15)
-------------------
-* Merge radius property (`#480 <https://github.com/open-rmf/rmf_traffic_editor/pull/480>`_)
-* Mutex group property (`#477 <https://github.com/open-rmf/rmf_traffic_editor/pull/477>`_)
-
-1.8.1 (2023-08-10)
+1.6.2 (2023-08-10)
 ------------------
 
-1.8.0 (2023-06-08)
+1.6.1 (2023-06-05)
 ------------------
-
-1.7.0 (2023-06-06)
-------------------
-* Switch to rst changelogs (`#464 <https://github.com/open-rmf/rmf_traffic_editor/pull/464>`_)
+* Switch changelogs to rst format.
 * Contributors: Yadunund
 
 1.6.0 (2022-10-05)

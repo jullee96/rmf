@@ -11,7 +11,6 @@ add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
 find_package(ament_cmake REQUIRED)
-find_package(backward_ros REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(yaml-cpp REQUIRED)
 find_package(Threads REQUIRED)
@@ -252,25 +251,6 @@ target_include_directories(lift_supervisor
     ${rclcpp_INCLUDE_DIRS}
     ${rmf_lift_msgs_INCLUDE_DIRS}
     ${std_msgs_INCLUDE_DIRS}
-)
-
-# -----------------------------------------------------------------------------
-
-add_executable(mutex_group_supervisor
-  src/mutex_group_supervisor/main.cpp
-)
-
-target_link_libraries(mutex_group_supervisor
-  PRIVATE
-    rmf_fleet_adapter
-    ${rclcpp_LIBARRIES}
-    ${rmf_fleet_msgs_LIBRARIES}
-)
-
-target_include_directories(mutex_group_supervisor
-  PRIVATE
-    ${rclcpp_INCLUDE_DIRS}
-    ${rmf_fleet_msgs_INCLUDE_DIRS}
 )
 
 # -----------------------------------------------------------------------------
@@ -522,7 +502,6 @@ install(
     mock_traffic_light
     full_control
     lift_supervisor
-    mutex_group_supervisor
     experimental_lift_watchdog
     door_supervisor
     robot_state_aggregator

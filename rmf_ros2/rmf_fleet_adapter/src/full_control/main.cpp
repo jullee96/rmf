@@ -1027,7 +1027,7 @@ std::shared_ptr<Connections> make_fleet(
   connections->lane_closure_request_sub =
     adapter->node()->create_subscription<rmf_fleet_msgs::msg::LaneRequest>(
     rmf_fleet_adapter::LaneClosureRequestTopicName,
-    rclcpp::SystemDefaultsQoS().keep_last(10),
+    rclcpp::SystemDefaultsQoS(),
     [w = connections->weak_from_this(), fleet_name](
       rmf_fleet_msgs::msg::LaneRequest::UniquePtr request_msg)
     {
@@ -1071,7 +1071,7 @@ std::shared_ptr<Connections> make_fleet(
     adapter->node()->create_subscription<
     rmf_fleet_msgs::msg::SpeedLimitRequest>(
     rmf_fleet_adapter::SpeedLimitRequestTopicName,
-    rclcpp::SystemDefaultsQoS().keep_last(10),
+    rclcpp::SystemDefaultsQoS(),
     [w = connections->weak_from_this(), fleet_name](
       rmf_fleet_msgs::msg::SpeedLimitRequest::ConstSharedPtr request_msg)
     {
@@ -1099,7 +1099,7 @@ std::shared_ptr<Connections> make_fleet(
   connections->interrupt_request_sub =
     adapter->node()->create_subscription<rmf_fleet_msgs::msg::InterruptRequest>(
     rmf_fleet_adapter::InterruptRequestTopicName,
-    rclcpp::SystemDefaultsQoS().keep_last(10),
+    rclcpp::SystemDefaultsQoS(),
     [w = connections->weak_from_this(), fleet_name](
       rmf_fleet_msgs::msg::InterruptRequest::UniquePtr request_msg)
     {
@@ -1128,7 +1128,7 @@ std::shared_ptr<Connections> make_fleet(
   connections->mode_request_sub =
     adapter->node()->create_subscription<rmf_fleet_msgs::msg::ModeRequest>(
     "/action_execution_notice",
-    rclcpp::SystemDefaultsQoS().keep_last(10),
+    rclcpp::SystemDefaultsQoS(),
     [w = connections->weak_from_this(), fleet_name](
       rmf_fleet_msgs::msg::ModeRequest::UniquePtr msg)
     {
@@ -1249,12 +1249,10 @@ std::shared_ptr<Connections> make_fleet(
 
   if (finishing_request_string == "charge")
   {
-    auto charge_factory =
+    finishing_request =
       std::make_shared<rmf_task::requests::ChargeBatteryFactory>(
       std::string(node->get_name()),
       std::move(get_time));
-    charge_factory->set_indefinite(true);
-    finishing_request = charge_factory;
     RCLCPP_INFO(
       node->get_logger(),
       "Fleet is configured to perform ChargeBattery as finishing request");
@@ -1358,18 +1356,16 @@ std::shared_ptr<Connections> make_fleet(
 
   connections->path_request_pub = node->create_publisher<
     rmf_fleet_msgs::msg::PathRequest>(
-    rmf_fleet_adapter::PathRequestTopicName,
-    rclcpp::SystemDefaultsQoS().keep_last(10));
+    rmf_fleet_adapter::PathRequestTopicName, rclcpp::SystemDefaultsQoS());
 
   connections->mode_request_pub = node->create_publisher<
     rmf_fleet_msgs::msg::ModeRequest>(
-    rmf_fleet_adapter::ModeRequestTopicName,
-    rclcpp::SystemDefaultsQoS().keep_last(10));
+    rmf_fleet_adapter::ModeRequestTopicName, rclcpp::SystemDefaultsQoS());
 
   connections->fleet_state_sub = node->create_subscription<
     rmf_fleet_msgs::msg::FleetState>(
     rmf_fleet_adapter::FleetStateTopicName,
-    rclcpp::SystemDefaultsQoS().keep_last(10),
+    rclcpp::SystemDefaultsQoS(),
     [c = std::weak_ptr<Connections>(connections), fleet_name](
       const rmf_fleet_msgs::msg::FleetState::SharedPtr msg)
     {

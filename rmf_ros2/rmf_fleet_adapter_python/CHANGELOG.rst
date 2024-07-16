@@ -2,31 +2,15 @@
 Changelog for package rmf_fleet_adapter_python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.6.0 (2024-03-13)
-------------------
-* add in_lift readonly property in Graph::Waypoint binding. (`#326 <https://github.com/open-rmf/rmf_ros2/pull/326>`_)
-* Contributors: cwrx777
-
-2.5.0 (2023-12-22)
+2.1.8 (2023-12-19)
 ------------------
 
-2.4.0 (2023-12-15)
+2.1.7 (2023-08-10)
 ------------------
-
-2.3.2 (2023-08-28)
-------------------
-* EasyFullControl API (`#235 <https://github.com/open-rmf/rmf_ros2/pull/235>`_)
-* Contributors: Grey, Luca Della Vedova, Xiyu, Yadunund
-
-2.3.1 (2023-08-10)
-------------------
-* Adding initiator and request time to booking (`#267 <https://github.com/open-rmf/rmf_ros2/pull/267>`_)
+* Adding initiator and request time to booking (`#284 <https://github.com/open-rmf/rmf_ros2/pull/284>`_)
 * Contributors: Aaron Chong
 
-2.3.0 (2023-06-08)
-------------------
-
-2.2.0 (2023-06-06)
+2.1.6 (2023-06-02)
 ------------------
 * Switch to rst changelogs (`#276 <https://github.com/open-rmf/rmf_ros2/pull/276>`_)
 * Contributors: Yadunund

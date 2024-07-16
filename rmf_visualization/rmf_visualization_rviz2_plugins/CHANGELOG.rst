@@ -2,18 +2,11 @@
 Changelog for package rmf_visualization_rviz2_plugins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.2.1 (2023-08-28)
+2.0.2 (2023-06-05)
 ------------------
-* Improve linking times (`#61 <https://github.com/open-rmf/rmf_visualization/pull/61>`_)
-* Contributors: Grey, Luca Della Vedova
-
-2.2.0 (2023-06-08)
-------------------
-
-2.1.0 (2023-06-06)
-------------------
-* Switch to rst changelogs (`#57 <https://github.com/open-rmf/rmf_visualization/pull/57>`_)
-* Contributors: Yadunund
+* Port version bump and changes from main to humble
+* Switch to rst changelogs (`#57 <https://github.com/open-rmf/rmf_visualization/issues/57>`_)
+* Contributors: Esteban Martinena, Grey, Yadunund
 
 2.0.1 (2022-11-15)
 ------------------
@@ -31,7 +24,7 @@ Changelog for package rmf_visualization_rviz2_plugins
 * Renamed package to `rmf_visualization_rviz2_plugins`: (`#8 <https://github.com/open-rmf/rmf_visualization/pull/8>`_)
 
 1.1.0 (2020-09-24)
-------------------
+-----------
 * Use relative library path for plugin: (`#62 <https://github.com/osrf/rmf_schedule_visualizer/pull/62>`_)
 * Websocket server for negotiation visualizer (`#69 <https://github.com/osrf/rmf_schedule_visualizer/pull/69>`_)
 * Foxy warning fix: Change deprecated ament_export_interfaces to ament_export_targets: (`#74 <https://github.com/osrf/rmf_schedule_visualizer/pull/74>`_)

@@ -2,33 +2,15 @@
 Changelog for package rmf_task_ros2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.6.0 (2024-03-13)
-------------------
-* Add Backward-ROS for improved logging in event of segfaults (`#327 <https://github.com/open-rmf/rmf_ros2/pull/327>`_)
-* Explicitly specify all qos depth (`#323 <https://github.com/open-rmf/rmf_ros2/pull/323>`_)
-* Adds an option to generate unique hex strings for new task ids, fix time stamp logic (`#319 <https://github.com/open-rmf/rmf_ros2/pull/319>`_)
-* Contributors: Aaron Chong, Arjo Chakravarty, Teo Koon Peng
-
-2.5.0 (2023-12-22)
+2.1.8 (2023-12-19)
 ------------------
 
-2.4.0 (2023-12-15)
+2.1.7 (2023-08-10)
 ------------------
-
-2.3.2 (2023-08-28)
-------------------
-* Improve linking time (`#297 <https://github.com/open-rmf/rmf_ros2/pull/297>`_)
-* Contributors: Grey, Luca Della Vedova
-
-2.3.1 (2023-08-10)
-------------------
-* Adding initiator and request time to booking (`#267 <https://github.com/open-rmf/rmf_ros2/pull/267>`_)
+* Adding initiator and request time to booking (`#284 <https://github.com/open-rmf/rmf_ros2/pull/284>`_)
 * Contributors: Aaron Chong
 
-2.3.0 (2023-06-08)
-------------------
-
-2.2.0 (2023-06-06)
+2.1.6 (2023-06-02)
 ------------------
 * Switch to rst changelogs (`#276 <https://github.com/open-rmf/rmf_ros2/pull/276>`_)
 * Contributors: Yadunund
